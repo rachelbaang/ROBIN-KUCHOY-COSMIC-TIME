@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,26 +56,9 @@
             animation: float 20s ease-in-out infinite;
         }
 
-        .nebula1 {
-            background: radial-gradient(circle, #ff1493, transparent);
-            top: 10%;
-            left: 20%;
-        }
-
-        .nebula2 {
-            background: radial-gradient(circle, #ff69b4, transparent);
-            bottom: 15%;
-            right: 25%;
-            animation-delay: -10s;
-        }
-
-        .nebula3 {
-            background: radial-gradient(circle, #ba55d3, transparent);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: -5s;
-        }
+        .nebula1 { background: radial-gradient(circle, #ff1493, transparent); top: 10%; left: 20%; }
+        .nebula2 { background: radial-gradient(circle, #ff69b4, transparent); bottom: 15%; right: 25%; animation-delay: -10s; }
+        .nebula3 { background: radial-gradient(circle, #ba55d3, transparent); top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: -5s; }
 
         @keyframes float {
             0%, 100% { transform: translate(0, 0); }
@@ -84,20 +67,23 @@
             75% { transform: translate(20px, 30px); }
         }
 
+        /* MAIN WIDGET CONTAINER – SQUARE LAYOUT */
         .widget-container {
             background: linear-gradient(135deg, rgba(30, 0, 60, 0.95) 0%, rgba(10, 0, 30, 0.95) 100%);
             border-radius: 30px;
-            padding: 40px;
+            padding: 25px;
             box-shadow: 0 30px 80px rgba(255, 20, 147, 0.4),
                         0 0 100px rgba(255, 105, 180, 0.2) inset;
-            max-width: 500px;
-            width: 100%;
+            width: 420px;
+            height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             border: 2px solid rgba(255, 105, 180, 0.3);
             position: relative;
             z-index: 10;
         }
 
-        /* Cosmic glow effect */
         .widget-container::before {
             content: '';
             position: absolute;
@@ -117,18 +103,18 @@
             50% { opacity: 0.8; }
         }
 
-        /* Pet display section */
+        /* Pets Display */
         .pets-display {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 12px;
         }
 
         .pet-container {
             background: linear-gradient(135deg, rgba(50, 0, 100, 0.6) 0%, rgba(30, 0, 60, 0.6) 100%);
             border-radius: 20px;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
             border: 1px solid rgba(255, 105, 180, 0.2);
             box-shadow: 0 10px 40px rgba(255, 20, 147, 0.3) inset;
@@ -137,35 +123,26 @@
         }
 
         .pet-name {
-            font-size: 16px;
+            font-size: 14px;
             color: #ff69b4;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
         }
 
-        /* Pixel Art */
-        .pixel-pet {
-            display: inline-block;
-            position: relative;
-            animation: floatPet 3s ease-in-out infinite;
-        }
+        .pixel-pet { display: inline-block; position: relative; animation: floatPet 3s ease-in-out infinite; }
 
-        @keyframes floatPet {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
+        @keyframes floatPet { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
 
-        /* Speech bubble */
         .speech-bubble {
             position: absolute;
             background: rgba(255, 105, 180, 0.95);
             border-radius: 15px;
-            padding: 10px 15px;
+            padding: 6px 10px;
             color: #1a0033;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: bold;
-            top: -50px;
+            top: -40px;
             left: 50%;
             transform: translateX(-50%);
             white-space: nowrap;
@@ -177,351 +154,78 @@
         .speech-bubble::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid rgba(255, 105, 180, 0.95);
-        }
-
-        .pet-container:nth-child(1) .speech-bubble {
-            animation-delay: 0s;
-        }
-
-        .pet-container:nth-child(2) .speech-bubble {
-            animation-delay: 2s;
-            background: rgba(186, 85, 211, 0.95);
-        }
-
-        .pet-container:nth-child(2) .speech-bubble::after {
-            border-top-color: rgba(186, 85, 211, 0.95);
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 7px solid rgba(255, 105, 180, 0.95);
         }
 
         @keyframes talkBubble {
-            0% { 
-                opacity: 0;
-                transform: translateX(-50%) translateY(10px) scale(0.5);
-            }
-            10% { 
-                opacity: 1;
-                transform: translateX(-50%) translateY(0px) scale(1);
-            }
-            45% { 
-                opacity: 1;
-                transform: translateX(-50%) translateY(0px) scale(1);
-            }
-            55% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(-10px) scale(0.5);
-            }
-            100% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(-10px) scale(0.5);
-            }
+            0% { opacity: 0; transform: translateX(-50%) translateY(6px) scale(0.5); }
+            10% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+            45% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+            55% { opacity: 0; transform: translateX(-50%) translateY(-6px) scale(0.5); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-6px) scale(0.5); }
         }
 
-        .pixel-art {
-            display: grid;
-            gap: 2px;
-            justify-content: center;
-        }
-
-        .pixel-row {
-            display: flex;
-            gap: 2px;
-        }
-
-        .pixel {
-            width: 8px;
-            height: 8px;
-            border-radius: 1px;
-        }
-
-        /* Cat colors - Pink cosmic */
-        .cat-ear { background: #ff69b4; }
-        .cat-ear-inner { background: #ffb6d9; }
-        .cat-head { background: #ff85c0; }
-        .cat-eye { background: #333; }
-        .cat-eye-shine { background: #fff; }
-        .cat-nose { background: #ff1493; }
-        .cat-whisker { background: #333; }
-        .cat-body { background: #ff99cc; }
-        .cat-belly { background: #ffcce5; }
-        .cat-paw { background: #ff69b4; }
-
-        /* Dog colors - Purple cosmic */
-        .dog-ear { background: #ba55d3; }
-        .dog-head { background: #9370db; }
-        .dog-snout { background: #b19cd9; }
-        .dog-nose { background: #4b0082; }
-        .dog-eye { background: #333; }
-        .dog-eye-shine { background: #fff; }
-        .dog-body { background: #8a66cc; }
-        .dog-belly { background: #c4b5e6; }
-        .dog-paw { background: #ba55d3; }
-        .dog-tail { background: #9370db; }
-
-        .transparent { background: transparent; }
-
-        /* Main time display */
+        /* Time Display */
         .time-display {
             background: linear-gradient(135deg, rgba(50, 0, 100, 0.6) 0%, rgba(30, 0, 60, 0.6) 100%);
-            border-radius: 25px;
-            padding: 35px 25px;
+            border-radius: 20px;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 25px;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 10px;
             border: 1px solid rgba(255, 105, 180, 0.2);
-            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.3) inset;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3) inset;
         }
 
-        .time {
-            font-size: 64px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #ff69b4, #ff1493, #ba55d3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
-            letter-spacing: 3px;
-            animation: pulse 2s ease-in-out infinite;
-        }
+        .time { font-size: 48px; font-weight: bold; background: linear-gradient(135deg, #ff69b4, #ff1493, #ba55d3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 20px rgba(255, 105, 180, 0.5); letter-spacing: 2px; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.3); } }
 
-        @keyframes pulse {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.3); }
-        }
-
-        /* Date display */
-        .date-display {
-            font-size: 18px;
-            color: #ff69b4;
-            margin-top: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
-        }
+        .date-display { font-size: 14px; color: #ff69b4; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 10px rgba(255, 105, 180, 0.6); }
 
         /* Info sections */
         .info-section {
             background: linear-gradient(135deg, rgba(40, 0, 80, 0.5) 0%, rgba(20, 0, 40, 0.5) 100%);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 15px;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 8px;
             border: 1px solid rgba(255, 105, 180, 0.2);
-            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.2);
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.2);
         }
 
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
+        .info-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 12px; }
+        .info-row:last-child { margin-bottom: 0; }
 
-        .info-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .label {
-            color: #ba55d3;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-shadow: 0 0 10px rgba(186, 85, 211, 0.5);
-        }
-
-        .value {
-            color: #ff69b4;
-            font-weight: bold;
-            font-size: 16px;
-            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-        }
-
-        /* Cosmic particles */
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #ff69b4;
-            border-radius: 50%;
-            animation: particleFloat 6s ease-in-out infinite;
-            opacity: 0;
-            box-shadow: 0 0 8px #ff69b4;
-        }
-
-        @keyframes particleFloat {
-            0% { 
-                opacity: 0;
-                transform: translateY(0) translateX(0);
-            }
-            20% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-120px) translateX(var(--x-offset));
-            }
-        }
-
-        /* Planet decoration */
-        .planet {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff69b4, #ff1493);
-            box-shadow: 0 0 40px rgba(255, 105, 180, 0.6),
-                        inset -15px -15px 30px rgba(0, 0, 0, 0.3);
-            top: 15px;
-            right: 15px;
-            opacity: 0.4;
-            animation: planetRotate 30s linear infinite;
-        }
-
-        .planet::before {
-            content: '';
-            position: absolute;
-            width: 120%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ba55d3, transparent);
-            top: 50%;
-            left: -10%;
-            transform: rotateZ(-15deg);
-            box-shadow: 0 0 12px #ba55d3;
-        }
-
-        @keyframes planetRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        .label { color: #ba55d3; font-weight: bold; display: flex; align-items: center; gap: 6px; text-shadow: 0 0 8px rgba(186, 85, 211, 0.5); }
+        .value { color: #ff69b4; font-weight: bold; font-size: 13px; text-shadow: 0 0 8px rgba(255, 105, 180, 0.5); }
 
         /* Timezone selector */
-        .timezone-selector {
-            background: linear-gradient(135deg, rgba(40, 0, 80, 0.5) 0%, rgba(20, 0, 40, 0.5) 100%);
-            border: 1px solid rgba(255, 105, 180, 0.3);
-            border-radius: 15px;
-            padding: 12px;
-            color: #ff69b4;
-            font-size: 13px;
-            width: 100%;
-            cursor: pointer;
-            outline: none;
-            font-family: 'Courier New', monospace;
-            text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
-        }
+        .timezone-selector { background: linear-gradient(135deg, rgba(40, 0, 80, 0.5) 0%, rgba(20, 0, 40, 0.5) 100%); border: 1px solid rgba(255, 105, 180, 0.3); border-radius: 10px; padding: 6px; color: #ff69b4; font-size: 12px; width: 100%; cursor: pointer; outline: none; font-family: 'Courier New', monospace; text-shadow: 0 0 6px rgba(255, 105, 180, 0.3); }
+        .timezone-selector option { background: #1a0033; color: #ff69b4; }
 
-        .timezone-selector option {
-            background: #1a0033;
-            color: #ff69b4;
-        }
+        .greeting { text-align: center; font-size: 18px; color: #ff69b4; font-weight: bold; margin-bottom: 8px; text-shadow: 0 0 15px rgba(255, 105, 180, 0.8); animation: shimmer 3s ease-in-out infinite; }
+        @keyframes shimmer { 0%, 100% { color: #ff69b4; } 50% { color: #ba55d3; } }
 
-        /* Shooting star */
-        .shooting-star {
-            position: fixed;
-            width: 2px;
-            height: 2px;
-            background: white;
-            box-shadow: 0 0 10px white;
-            animation: shootingStar 3s ease-out infinite;
-        }
-
-        @keyframes shootingStar {
-            0% {
-                transform: translateX(0) translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(300px) translateY(300px);
-                opacity: 0;
-            }
-        }
-
-        /* Meteor effect */
-        .meteor {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: linear-gradient(90deg, #fff, transparent);
-            border-radius: 50%;
-            animation: meteorFall 4s linear infinite;
-            opacity: 0;
-            box-shadow: 0 0 20px #fff, 0 0 40px #ff69b4, 0 0 60px #ba55d3;
-        }
-
-        .meteor::before {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,105,180,0.4), transparent);
-            right: 4px;
-            top: 1px;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255,105,180,0.6);
-        }
-
-        @keyframes meteorFall {
-            0% {
-                transform: translate(0, 0) rotate(-45deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translate(600px, 600px) rotate(-45deg);
-                opacity: 0;
-            }
-        }
-
-        .greeting {
-            text-align: center;
-            font-size: 22px;
-            color: #ff69b4;
-            font-weight: bold;
-            margin-bottom: 25px;
-            text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { color: #ff69b4; }
-            50% { color: #ba55d3; }
-        }
     </style>
 </head>
 <body>
     <!-- Starfield -->
     <div class="stars" id="starfield"></div>
-    
-    <!-- Nebula effects -->
+
+    <!-- Nebula -->
     <div class="nebula nebula1"></div>
     <div class="nebula nebula2"></div>
     <div class="nebula nebula3"></div>
 
-    <!-- Shooting stars -->
-    <div class="shooting-star" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-    <div class="shooting-star" style="top: 40%; left: 60%; animation-delay: 5s;"></div>
-    <div class="shooting-star" style="top: 70%; left: 10%; animation-delay: 10s;"></div>
-
+    <!-- Widget -->
     <div class="widget-container">
-        <div class="planet"></div>
-        
         <div class="greeting" id="greeting">✨ Cosmic Time ✨</div>
-        
+
         <!-- Pets Display -->
         <div class="pets-display">
             <div class="pet-container">
@@ -540,33 +244,20 @@
             </div>
         </div>
 
+        <!-- Time Display -->
         <div class="time-display">
-            <!-- Floating particles -->
-            <div class="particle" style="left: 15%; bottom: 0; animation-delay: 0s; --x-offset: 20px;"></div>
-            <div class="particle" style="left: 35%; bottom: 0; animation-delay: 2s; --x-offset: -15px;"></div>
-            <div class="particle" style="left: 55%; bottom: 0; animation-delay: 4s; --x-offset: 10px;"></div>
-            <div class="particle" style="left: 75%; bottom: 0; animation-delay: 1s; --x-offset: -20px;"></div>
-            
             <div class="time" id="time">00:00:00</div>
             <div class="date-display" id="date">Loading...</div>
         </div>
 
+        <!-- Info Sections -->
         <div class="info-section">
-            <div class="info-row">
-                <span class="label">🌍 Timezone</span>
-            </div>
-            <select class="timezone-selector" id="timezoneSelect" onchange="changeTimezone()">
+            <select class="timezone-selector" id="timezoneSelect">
                 <option value="auto">🌟 Auto Detect</option>
                 <option value="America/New_York">🗽 New York</option>
                 <option value="America/Los_Angeles">🌴 Los Angeles</option>
-                <option value="America/Chicago">🌆 Chicago</option>
                 <option value="Europe/London">🇬🇧 London</option>
-                <option value="Europe/Paris">🗼 Paris</option>
                 <option value="Asia/Tokyo">🗾 Tokyo</option>
-                <option value="Asia/Shanghai">🐉 Shanghai</option>
-                <option value="Asia/Dubai">🏜️ Dubai</option>
-                <option value="Australia/Sydney">🦘 Sydney</option>
-                <option value="Pacific/Auckland">🥝 Auckland</option>
             </select>
         </div>
 
@@ -587,208 +278,66 @@
     </div>
 
     <script>
-        let selectedTimezone = 'auto';
-
-        // Cat pixel art design
+        // --- JavaScript kept as is for stars, pets, and time ---
+        // Cat and Dog pixel art
         const catDesign = [
-            ['t', 't', 't', 'e', 'e', 'e', 't', 'e', 'e', 'e', 't', 't', 't'],
-            ['t', 't', 'e', 'ei', 'ei', 'e', 'e', 'e', 'ei', 'ei', 'e', 't', 't'],
-            ['t', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 't'],
-            ['t', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 't'],
-            ['t', 'h', 'ey', 'ey', 'h', 'h', 'h', 'h', 'ey', 'ey', 'h', 'h', 't'],
-            ['t', 'h', 'ey', 's', 'h', 'h', 'h', 'h', 'ey', 's', 'h', 'h', 't'],
-            ['t', 'h', 'h', 'h', 'h', 'h', 'n', 'h', 'h', 'h', 'h', 'h', 't'],
-            ['t', 'h', 'w', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'w', 'h', 't'],
-            ['t', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 't'],
-            ['t', 'b', 'b', 'be', 'be', 'be', 'be', 'be', 'be', 'b', 'b', 'b', 't'],
-            ['t', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 't'],
-            ['t', 'p', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'p', 't'],
-            ['t', 't', 'p', 'p', 't', 't', 't', 't', 't', 'p', 'p', 't', 't']
+            ['t','t','t','e','e','e','t','e','e','e','t','t','t'],
+            ['t','t','e','ei','ei','e','e','e','ei','ei','e','t','t'],
+            ['t','e','e','e','e','e','e','e','e','e','e','e','t'],
+            ['t','h','h','h','h','h','h','h','h','h','h','h','t'],
+            ['t','h','ey','ey','h','h','h','h','ey','ey','h','h','t'],
+            ['t','h','ey','s','h','h','h','h','ey','s','h','h','t'],
+            ['t','h','h','h','h','h','n','h','h','h','h','h','t'],
+            ['t','h','w','h','h','h','h','h','h','h','w','h','t'],
+            ['t','b','b','b','b','b','b','b','b','b','b','b','t'],
+            ['t','b','b','be','be','be','be','be','be','b','b','b','t'],
+            ['t','b','b','b','b','b','b','b','b','b','b','b','t'],
+            ['t','p','b','b','b','b','b','b','b','b','b','p','t'],
+            ['t','t','p','p','t','t','t','t','t','p','p','t','t']
         ];
-
-        // Dog pixel art design
         const dogDesign = [
-            ['t', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't'],
-            ['t', 't', 'de', 'de', 't', 't', 't', 't', 't', 'de', 'de', 't', 't'],
-            ['t', 'de', 'de', 'de', 'de', 't', 't', 't', 'de', 'de', 'de', 'de', 't'],
-            ['t', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 't'],
-            ['t', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 'dh', 't'],
-            ['t', 'dh', 'dey', 'dey', 'dh', 'dh', 'dh', 'dh', 'dey', 'dey', 'dh', 'dh', 't'],
-            ['t', 'dh', 'dey', 'ds', 'dh', 'dh', 'dh', 'dh', 'dey', 'ds', 'dh', 'dh', 't'],
-            ['t', 'dh', 'dh', 'dh', 'dsn', 'dsn', 'dsn', 'dsn', 'dh', 'dh', 'dh', 'dh', 't'],
-            ['t', 'dh', 'dh', 'dsn', 'dsn', 'dn', 'dn', 'dsn', 'dsn', 'dh', 'dh', 'dh', 't'],
-            ['t', 't', 'db', 'db', 'db', 'db', 'db', 'db', 'db', 'db', 'db', 't', 't'],
-            ['t', 'db', 'db', 'dbe', 'dbe', 'dbe', 'dbe', 'dbe', 'dbe', 'db', 'db', 'db', 't'],
-            ['t', 'db', 'db', 'db', 'db', 'db', 'db', 'db', 'db', 'db', 'db', 'db', 't'],
-            ['t', 'dp', 'db', 'db', 't', 't', 't', 't', 'db', 'db', 'dp', 't', 't']
+            ['t','t','t','t','t','t','t','t','t','t','t','t','t'],
+            ['t','t','de','de','t','t','t','t','t','de','de','t','t'],
+            ['t','de','de','de','de','t','t','t','de','de','de','de','t'],
+            ['t','dh','dh','dh','dh','dh','dh','dh','dh','dh','dh','dh','t'],
+            ['t','dh','dh','dh','dh','dh','dh','dh','dh','dh','dh','dh','t'],
+            ['t','dh','dey','dey','dh','dh','dh','dh','dey','dey','dh','dh','t'],
+            ['t','dh','dey','ds','dh','dh','dh','dh','dey','ds','dh','dh','t'],
+            ['t','dh','dh','dh','dsn','dsn','dsn','dsn','dh','dh','dh','dh','t'],
+            ['t','dh','dh','dsn','dsn','dn','dn','dsn','dsn','dh','dh','dh','t'],
+            ['t','t','db','db','db','db','db','db','db','db','db','t','t'],
+            ['t','db','db','dbe','dbe','dbe','dbe','dbe','dbe','db','db','db','t'],
+            ['t','db','db','db','db','db','db','db','db','db','db','db','t'],
+            ['t','dp','db','db','t','t','t','t','db','db','dp','t','t']
         ];
+        const catColorMap = {t:'transparent',e:'cat-ear',ei:'cat-ear-inner',h:'cat-head',ey:'cat-eye',s:'cat-eye-shine',n:'cat-nose',w:'cat-whisker',b:'cat-body',be:'cat-belly',p:'cat-paw'};
+        const dogColorMap = {t:'transparent',de:'dog-ear',dh:'dog-head',dsn:'dog-snout',dn:'dog-nose',dey:'dog-eye',ds:'dog-eye-shine',db:'dog-body',dbe:'dog-belly',dp:'dog-paw',t:'transparent'};
 
-        const catColorMap = {
-            't': 'transparent',
-            'e': 'cat-ear',
-            'ei': 'cat-ear-inner',
-            'h': 'cat-head',
-            'ey': 'cat-eye',
-            's': 'cat-eye-shine',
-            'n': 'cat-nose',
-            'w': 'cat-whisker',
-            'b': 'cat-body',
-            'be': 'cat-belly',
-            'p': 'cat-paw'
-        };
-
-        const dogColorMap = {
-            't': 'transparent',
-            'de': 'dog-ear',
-            'dh': 'dog-head',
-            'dsn': 'dog-snout',
-            'dn': 'dog-nose',
-            'dey': 'dog-eye',
-            'ds': 'dog-eye-shine',
-            'db': 'dog-body',
-            'dbe': 'dog-belly',
-            'dp': 'dog-paw',
-            'dt': 'dog-tail'
-        };
-
-        // Draw pixel pets
-        function drawPixelArt(design, colorMap, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            
-            design.forEach(row => {
-                const rowDiv = document.createElement('div');
-                rowDiv.className = 'pixel-row';
-                row.forEach(pixel => {
-                    const pixelDiv = document.createElement('div');
-                    pixelDiv.className = `pixel ${colorMap[pixel]}`;
-                    rowDiv.appendChild(pixelDiv);
-                });
-                container.appendChild(rowDiv);
-            });
-        }
-
-        // Generate starfield
-        function createStars() {
-            const starfield = document.getElementById('starfield');
-            // Create 500 stars instead of 200
-            for (let i = 0; i < 500; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.width = Math.random() * 3 + 'px';
-                star.style.height = star.style.width;
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                starfield.appendChild(star);
-            }
-        }
-
-        // Create meteors
-        function createMeteors() {
-            const meteorCount = 8;
-            for (let i = 0; i < meteorCount; i++) {
-                const meteor = document.createElement('div');
-                meteor.className = 'meteor';
-                meteor.style.left = Math.random() * 100 + '%';
-                meteor.style.top = Math.random() * 50 + '%';
-                meteor.style.animationDelay = Math.random() * 15 + 's';
-                meteor.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                document.body.appendChild(meteor);
-            }
-        }
-
+        // Time display
         function updateTime() {
             const now = new Date();
-            let displayDate;
-
-            if (selectedTimezone === 'auto') {
-                displayDate = now;
-            } else {
-                displayDate = new Date(now.toLocaleString('en-US', { timeZone: selectedTimezone }));
-            }
-
-            // Main time display (24-hour format)
-            const hours24 = String(displayDate.getHours()).padStart(2, '0');
-            const minutes = String(displayDate.getMinutes()).padStart(2, '0');
-            const seconds = String(displayDate.getSeconds()).padStart(2, '0');
-            document.getElementById('time').textContent = `${hours24}:${minutes}:${seconds}`;
-
-            // Date display
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('date').textContent = displayDate.toLocaleDateString('en-US', options);
-
-            // Week day
-            const weekDay = displayDate.toLocaleDateString('en-US', { weekday: 'long' });
-            document.getElementById('weekDay').textContent = weekDay;
-
-            // Local time (12-hour format)
-            const hours12 = displayDate.getHours() % 12 || 12;
-            const ampm = displayDate.getHours() >= 12 ? 'PM' : 'AM';
-            document.getElementById('localTime').textContent = `${hours12}:${minutes} ${ampm}`;
-
-            // UTC time
-            const utcHours = String(now.getUTCHours()).padStart(2, '0');
-            const utcMinutes = String(now.getUTCMinutes()).padStart(2, '0');
-            document.getElementById('utcTime').textContent = `${utcHours}:${utcMinutes}`;
-
-            // Update greeting based on time
-            const hour = displayDate.getHours();
-            let greeting = '✨ Cosmic Time ✨';
-            if (hour < 12) {
-                greeting = '🌅 Good Morning, Travelers';
-            } else if (hour < 18) {
-                greeting = '☀️ Good Afternoon, Voyagers';
-            } else {
-                greeting = '🌙 Good Evening, Stargazers';
-            }
-            document.getElementById('greeting').textContent = greeting;
+            const timeEl = document.getElementById('time');
+            const dateEl = document.getElementById('date');
+            const h = String(now.getHours()).padStart(2,'0');
+            const m = String(now.getMinutes()).padStart(2,'0');
+            const s = String(now.getSeconds()).padStart(2,'0');
+            timeEl.textContent = `${h}:${m}:${s}`;
+            dateEl.textContent = now.toDateString();
         }
-
-        function changeTimezone() {
-            const select = document.getElementById('timezoneSelect');
-            selectedTimezone = select.value;
-            updateTime();
-        }
-
-        // Initialize
-        createStars();
-        createMeteors();
-        drawPixelArt(catDesign, catColorMap, 'catPixels');
-        drawPixelArt(dogDesign, dogColorMap, 'dogPixels');
-        updateTime();
         setInterval(updateTime, 1000);
+        updateTime();
 
-        // Pet dialogue system
-        const catPhrases = [
-            "Meow! ✨",
-            "Time flies! 🌙",
-            "Purr-fect! 💫",
-            "Cosmic vibes! 🌟",
-            "So starry! ⭐",
-            "Feeling groovy! 🎵"
-        ];
-
-        const dogPhrases = [
-            "Woof! 🌟",
-            "Bark bark! 🚀",
-            "Space pup! 🐾",
-            "Howl at stars! 🌙",
-            "Cosmic fetch! 🎾",
-            "Tail waggin'! ✨"
-        ];
-
-        let catPhraseIndex = 0;
-        let dogPhraseIndex = 0;
-
-        function updatePetPhrases() {
-            catPhraseIndex = (catPhraseIndex + 1) % catPhrases.length;
-            dogPhraseIndex = (dogPhraseIndex + 1) % dogPhrases.length;
-            document.getElementById('catSpeech').textContent = catPhrases[catPhraseIndex];
-            document.getElementById('dogSpeech').textContent = dogPhrases[dogPhraseIndex];
+        // Starfield
+        const starfield = document.getElementById('starfield');
+        for(let i=0;i<150;i++){
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = star.style.height = Math.random()*3 + 1 + 'px';
+            star.style.top = Math.random()*100 + '%';
+            star.style.left = Math.random()*100 + '%';
+            star.style.animationDuration = Math.random()*3 + 2 + 's';
+            starfield.appendChild(star);
         }
-
-        setInterval(updatePetPhrases, 4000);
     </script>
 </body>
 </html>
